@@ -1,0 +1,14 @@
+Integrantes del grupo 4 - laboratorio 1
+- Lora Gallardo Rolando
+- Marcani Aguilar Abel Israel
+- Vera Miranda Luis Gustavo
+- Condori Cuiza Lizeth Maribel
+
+Implementacion
+Se implemento dos clases nuevas, MurosMoviles que desciende de APawn, estas
+son los muros en si con su mesh y su movimiento randomico, tambien se 
+implemento la clase SpawnMuros que desciende de AActor, esta clase permite
+que los muros aparezca de manera aleatoria de la parte de arriba del juego
+los muros aparecen caa 5seg y tambien tienen delimitaciones, si chocan a las
+paredes de los cantos estas rebotan, y si llegan abajo del escenario estas
+se destruyen.
