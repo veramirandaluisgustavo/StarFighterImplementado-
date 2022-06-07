@@ -10,13 +10,58 @@ AMurosMoviles::AMurosMoviles()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	MeshAleaotrio = FMath::RandRange(1, 3);
+	if (MeshAleaotrio == 1) {
+		static ConstructorHelpers::FObjectFinder<UStaticMesh> CapsuleMesh(TEXT("StaticMesh'/Engine/BasicShapes/Cube.Cube'"));
+		MeshCapsula = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MuroMesh"));
+		MeshCapsula->SetStaticMesh(CapsuleMesh.Object);
+		RootComponent = MeshCapsula;
+	}
+	if (MeshAleaotrio == 2) {
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> CapsuleMesh(TEXT("StaticMesh'/Engine/BasicShapes/Cube.Cube'"));
-	MeshCapsula = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MuroMesh"));
-	MeshCapsula->SetStaticMesh(CapsuleMesh.Object);
+		static ConstructorHelpers::FObjectFinder<UStaticMesh> CapsuleMesh(TEXT("StaticMesh'/Game/Meshes/MuroA.MuroA'"));
+		MeshCapsula = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MuroMesh"));
+		MeshCapsula->SetStaticMesh(CapsuleMesh.Object);
+		RootComponent = MeshCapsula;
+	}
+	else {
 
+		static ConstructorHelpers::FObjectFinder<UStaticMesh> CapsuleMesh(TEXT("StaticMesh'/Game/Meshes/MuroA1.MuroA1'"));
+		MeshCapsula = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MuroMesh"));
+		MeshCapsula->SetStaticMesh(CapsuleMesh.Object);
+		RootComponent = MeshCapsula;
+	}
+	
+	
+	
+	
 	AlturaCampo = 950.f;
 	AnchoCampo = 850.f;
+
+	IdentyM = 8989;
+
+
+	//AnchoM = FMath::RandRange(1, 2);
+	//AltoM = FMath::RandRange(1, 1.5);
+	//MeshCapsula->SetRelativeTransform(FTransform(FRotator(), FVector(), FVector(AnchoM, AltoM, 1)));
+}
+
+void AMurosMoviles::NotifyActorBeginOverlap(AActor* OtherActor)
+{
+	
+
+		//this->Destroy();
+
+	
+	
+
+
+}
+
+int AMurosMoviles::GetIdentyM()
+{
+
+	return IdentyM;
 }
 
 // Called when the game starts or when spawned

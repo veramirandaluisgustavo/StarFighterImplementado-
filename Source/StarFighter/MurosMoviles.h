@@ -18,6 +18,18 @@ public:
 	// propiedad para el mesh del muro
 	UPROPERTY(EditAnywhere)
 		class UStaticMeshComponent* MeshCapsula;
+	UPROPERTY()
+		float AnchoM;
+	UPROPERTY()
+		float AltoM;
+
+	UFUNCTION()
+		void NotifyActorBeginOverlap(AActor* OtherActor)override;
+	UPROPERTY()
+		int IdentyM ;
+	UFUNCTION()
+		int GetIdentyM();
+
 
 protected:
 	// Called when the game starts or when spawned
@@ -39,4 +51,7 @@ public:
 	FVector MoveDirection;
 	FVector Movement;
 	FRotator NewRotation;
+
+	int Prueva;
+	int MeshAleaotrio;
 };
